@@ -1,0 +1,11 @@
+---
+# defaults file for inverso.docker-compose
+#
+
+docker_compose__state: 'present'
+docker_compose__version: '1.21.2'
+docker_compose__installer_url: 'https://github.com/docker/compose/releases/download/{{ docker_compose__version }}/docker-compose-$(uname -s)-$(uname -m)'
+docker_compose__install_dest: '/usr/local/bin/docker-compose'
+
+docker_combose__bash_completion_url: 'https://raw.githubusercontent.com/docker/compose/{{ docker_compose__version }}/contrib/completion/bash/docker-compose'
+docker_combose__bash_completion_dest: '/etc/bash_completion.d/docker-compose'

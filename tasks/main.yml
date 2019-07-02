@@ -1,0 +1,27 @@
+---
+# tasks file for inverso.docker-compose
+#
+
+- name: ensure docker-compose is present
+  get_url: 
+    url: '{{ docker_compose__installer_url }}'
+    dest: '{{ docker_compose__install_dest }}'
+  when: docker_compose__state == 'present'
+
+- name: ensure docker-compose is absent
+  file:
+    path: '{{ docker_compose__install_dest }}'
+    state: absent
+  when: docker_compose__state == 'absent'
+
+- name: ensure docker compose bash_completion is present
+  get_url: 
+    url: '{{ docker_combose__bash_completion_url }}'
+    dest: '{{ docker_combose__bash_completion_dest }}'
+  when: docker_compose__state == 'present'
+
+- name: ensure docker compose bash_completion is absent
+  file:
+    path: '{{ docker_combose__bash_completion_dest }}'
+    state: absent
+  when: docker_compose__state == 'absent'
