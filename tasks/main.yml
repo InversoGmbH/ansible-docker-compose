@@ -6,6 +6,7 @@
   get_url: 
     url: '{{ docker_compose__installer_url }}'
     dest: '{{ docker_compose__install_dest }}'
+    mode: 'a=rx'
   when: docker_compose__state == 'present'
 
 - name: ensure docker-compose is absent
